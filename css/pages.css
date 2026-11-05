@@ -159,3 +159,30 @@ body:has(.page-project-grid) .page-hero h1 em, body:has(.service-page-grid) .pag
   .material-list span, .focus-points span { padding: 14px 0; }
   .service-promise p, .studio-story p, .turnkey-note p { font-size: 21px; }
 }
+
+.modal-open { overflow: hidden; }
+.consultation-modal { position: fixed; z-index: 2000; inset: 0; display: grid; place-items: center; padding: 24px; visibility: hidden; opacity: 0; transition: opacity .25s, visibility .25s; }
+.consultation-modal.is-open { visibility: visible; opacity: 1; }
+.consultation-backdrop { position: absolute; inset: 0; background: rgba(45, 23, 25, .66); }
+.consultation-dialog { position: relative; z-index: 1; width: min(680px, 100%); max-height: calc(100vh - 48px); overflow: auto; padding: 42px 48px 45px; background: var(--paper); box-shadow: 0 24px 70px rgba(45, 23, 25, .25); transform: translateY(12px); transition: transform .25s; }
+.consultation-modal.is-open .consultation-dialog { transform: translateY(0); }
+.consultation-close { position: absolute; top: 13px; right: 18px; color: var(--burgundy); font-size: 31px; font-weight: 300; line-height: 1; }
+.consultation-heading h2 { margin: 17px 0 11px; font-family: var(--serif); font-size: 47px; font-weight: 500; line-height: .9; letter-spacing: -.04em; }
+.consultation-heading h2 em { color: var(--burgundy); font-weight: 500; }
+.consultation-heading p { margin: 0 0 25px; font-family: var(--serif); font-size: 18px; }
+.consultation-form { display: grid; gap: 17px; }
+.consultation-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.consultation-form label { display: grid; gap: 6px; color: var(--burgundy); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+.consultation-form input, .consultation-form select, .consultation-form textarea { width: 100%; padding: 10px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; outline: 0; background: transparent; color: var(--ink); font-family: var(--serif); font-size: 18px; }
+.consultation-form select { cursor: pointer; }
+.consultation-form input:focus, .consultation-form select:focus, .consultation-form textarea:focus { border-color: var(--burgundy); }
+.consultation-form textarea { resize: vertical; }
+.consultation-success { display: none; margin: 0; color: var(--burgundy); font-family: var(--serif); font-size: 17px; }
+.consultation-success.is-visible { display: block; }
+@media (max-width: 760px) {
+  .consultation-modal { padding: 12px; }
+  .consultation-dialog { max-height: calc(100vh - 24px); padding: 36px 24px 28px; }
+  .consultation-heading h2 { font-size: 39px; }
+  .consultation-heading p { font-size: 17px; }
+  .consultation-form-row { grid-template-columns: 1fr; gap: 17px; }
+}
